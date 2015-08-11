@@ -5,16 +5,17 @@ import java.util.Random;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
+import org.springframework.stereotype.Component;
 
 import com.rhcloud.vadyazakusylo.kickstarter.dao.QuoteDao;
 import com.rhcloud.vadyazakusylo.kickstarter.entity.Quote;
-import com.rhcloud.vadyazakusylo.kickstarter.persistence.HibernateUtil;
 
-public class QuoteDaoSql implements QuoteDao {
+@Component
+public class QuoteDaoSql extends AbstractDao implements QuoteDao {
 
 	@Override
 	public Quote getQuote() {
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 
 		Criteria criteria = session.createCriteria(Quote.class);

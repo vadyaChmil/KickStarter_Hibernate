@@ -6,17 +6,18 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Component;
 
 import com.rhcloud.vadyazakusylo.kickstarter.dao.ProjectDao;
 import com.rhcloud.vadyazakusylo.kickstarter.entity.Project;
 import com.rhcloud.vadyazakusylo.kickstarter.entity.Question;
-import com.rhcloud.vadyazakusylo.kickstarter.persistence.HibernateUtil;
 
-public class ProjectDaoSql implements ProjectDao {
+@Component
+public class ProjectDaoSql extends AbstractDao implements ProjectDao {
 
 	@Override
 	public Project getProject(int projectId) {
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		Project project = (Project) session.get(Project.class, projectId);
 		session.getTransaction().commit();
@@ -25,7 +26,7 @@ public class ProjectDaoSql implements ProjectDao {
 
 	@Override
 	public void setCurrentMoney(int money, int projectId) {
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 
 		Project project = (Project) session.load(Project.class, projectId);
@@ -40,7 +41,7 @@ public class ProjectDaoSql implements ProjectDao {
 		Question newQuestion = new Question();
 		newQuestion.setQuestion(question);
 
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 
 		Project project = (Project) session.load(Project.class, projectId);
@@ -54,7 +55,7 @@ public class ProjectDaoSql implements ProjectDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Project> getProjects(int categoryId) {
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Session session = sessionFactory.getCurrentSession();
 
 		session.beginTransaction();
 

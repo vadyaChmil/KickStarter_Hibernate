@@ -24,7 +24,7 @@ public class CategoriesServlet extends HttpKickStarter {
 			Quote quote = quoteDao.getQuote();
 			request.setAttribute(QUOTE, quote);
 
-			List<Category> categories = categoriesDao.getCategories();
+			List<Category> categories = categoryDao.getCategories();
 			request.setAttribute(CATEGORIES, categories);
 			request.getRequestDispatcher(CATEGORIES_PAGE).forward(request, response);
 		} catch (Exception e) {

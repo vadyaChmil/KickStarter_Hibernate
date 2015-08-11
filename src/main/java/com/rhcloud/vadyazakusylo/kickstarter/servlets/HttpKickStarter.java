@@ -3,15 +3,15 @@ package com.rhcloud.vadyazakusylo.kickstarter.servlets;
 import javax.servlet.ServletConfig;
 import javax.servlet.http.HttpServlet;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import com.rhcloud.vadyazakusylo.kickstarter.dao.CategoryDao;
 import com.rhcloud.vadyazakusylo.kickstarter.dao.ProjectDao;
 import com.rhcloud.vadyazakusylo.kickstarter.dao.QuoteDao;
-import com.rhcloud.vadyazakusylo.kickstarter.dao_sql.CategoryDaoSql;
-import com.rhcloud.vadyazakusylo.kickstarter.dao_sql.ProjectDaoSql;
-import com.rhcloud.vadyazakusylo.kickstarter.dao_sql.QuoteDaoSql;
 
+@Controller
 public abstract class HttpKickStarter extends HttpServlet {
 
 	/**
@@ -35,11 +35,14 @@ public abstract class HttpKickStarter extends HttpServlet {
 	static final String DONATION_PAGE = "donation.jsp";
 	static final String ERROR_PAGE = "error.jsp";
 
-	QuoteDao quoteDao = new QuoteDaoSql();
+	@Autowired
+	QuoteDao quoteDao;
 
-	CategoryDao categoriesDao = new CategoryDaoSql();
+	@Autowired
+	CategoryDao categoryDao;
 
-	ProjectDao projectDao = new ProjectDaoSql();
+	@Autowired
+	ProjectDao projectDao;
 
 	@Override
 	public void init(ServletConfig config) throws javax.servlet.ServletException {
