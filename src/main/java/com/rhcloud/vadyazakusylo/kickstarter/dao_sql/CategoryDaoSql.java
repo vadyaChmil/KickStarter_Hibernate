@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.rhcloud.vadyazakusylo.kickstarter.dao.CategoryDao;
 import com.rhcloud.vadyazakusylo.kickstarter.entity.Category;
@@ -12,13 +13,11 @@ import com.rhcloud.vadyazakusylo.kickstarter.entity.Category;
 public class CategoryDaoSql extends AbstractDao implements CategoryDao {
 
 	@SuppressWarnings("unchecked")
+	@Transactional
 	@Override
 	public List<Category> getCategories() {
 		Session session = sessionFactory.getCurrentSession();
-		session.beginTransaction();
-		List<Category> result = session.createCriteria(Category.class).list();
-		session.getTransaction().commit();
-		return result;
+		return session.createCriteria(Category.class).list();
 	}
 
 }
