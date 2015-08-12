@@ -6,6 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.rhcloud.vadyazakusylo.kickstarter.dao.QuoteDao;
@@ -14,7 +15,7 @@ import com.rhcloud.vadyazakusylo.kickstarter.entity.Quote;
 @Component
 public class QuoteDaoSql extends AbstractDao implements QuoteDao {
 
-	@Transactional
+	@Transactional(propagation = Propagation.REQUIRED)
 	@Override
 	public Quote getQuote() {
 		Session session = sessionFactory.getCurrentSession();
