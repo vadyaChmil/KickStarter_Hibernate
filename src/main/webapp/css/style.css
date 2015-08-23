@@ -1,0 +1,100 @@
+body{
+font:bold 14px Arial, sans-serif;
+color:#121212;
+margin:0 auto;
+width:80%;
+background-image:url(../images/background.png);
+}
+
+h4, textarea, #quote, table, .description{
+font-style:italic;
+}
+
+#table, .element, a:link, a:visited{
+color:#0097FF;
+}
+
+a:link{
+text-decoration:none;
+}
+
+a:hover, .error{
+color: #F0424B
+}
+
+#menu{
+float:left;
+width:250px;
+word-spacing:10px;
+padding:auto 0;
+text-align:left;
+}
+
+#quote{
+text-align:right;
+}
+
+#table{
+padding:10px 20px;
+}
+
+#question{
+margin:20px;
+}
+
+#donationText{
+text-align:center;
+}
+
+#donation{
+width:50%;
+float:left;
+}
+
+#pledge{
+width:50%;
+margin-left:50%;
+margin-top:35px;
+text-align:center;
+}
+
+input, textarea{
+background-color:#f4f9ff;
+font-size:12px;
+}
+
+textarea{
+width:45%;
+}
+
+input:focus, textarea:focus{
+background-color:#ffffff;
+}
+
+ul{
+padding:15px;
+}
+
+li{
+list-style:circle;
+}
+
+table{
+width:100%;
+margin:10px 10px 0 0;
+text-align:left;
+}
+
+td{
+width:50%;
+}
+
+label{
+cursor:pointer;
+}
+
+#error{
+height:100%;
+padding-top:25%;
+text-align:center;
+}
