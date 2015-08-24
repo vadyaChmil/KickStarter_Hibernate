@@ -26,12 +26,12 @@
 	<p>Days to go - <span class="element">${project.daysLeft}</span></p>
 	<p>Description: <span class="description">${project.description}</span></p>
 	<p>History of project: <span class="description">${project.history}</span></p>
-	<p class="element"><a href="${project.urlVideo}" target="youtube">Video<a></p>
+	<p class="element"><a href="${project.urlVideo}" target="youtube">Video</a></p>
 	<table>
 		<c:if test='${not empty project.questions}'>
 			<tr>
-				<th id="table">Question</td>
-				<th id="table">Answer</td>
+				<th id="table">Question</th>
+				<th id="table">Answer</th>
 			</tr>
 			<c:forEach var="question" items="${project.questions}">
 				<tr>
