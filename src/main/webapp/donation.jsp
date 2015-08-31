@@ -25,7 +25,7 @@
 			<p><label for="name">Input name:</label></p>
 			<p><input type="text" name="name" id="name" size="30" required></p>
 			<p><label for="card">Input card number:</label></p>
-			<p><input type="text" name="card" id="card" size="30" maxlength="16"
+			<p><input type="text" name="card" id="card" size="30" minlength="16" maxlength="16"
 				onkeypress='return event.charCode >= 48 && event.charCode <= 57' required></p>
 			<p><label for="money">Input money (cents):</label></p>
 			<c:if test='${not empty money}'>
