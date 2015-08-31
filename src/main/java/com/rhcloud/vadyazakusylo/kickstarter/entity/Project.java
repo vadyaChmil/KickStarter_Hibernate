@@ -104,9 +104,8 @@ public class Project {
 		this.urlVideo = urlVideo;
 	}
 
-	@OneToMany
+	@OneToMany(mappedBy = "project")
 	@OrderBy("id")
-	@JoinColumn(name = "id_project")
 	public Set<Question> getQuestions() {
 		return questions;
 	}
@@ -115,9 +114,8 @@ public class Project {
 		this.questions = questions;
 	}
 
-	@OneToMany
+	@OneToMany(mappedBy = "project")
 	@OrderBy("money")
-	@JoinColumn(name = "id_project")
 	public Set<Donation> getDonations() {
 		return donations;
 	}

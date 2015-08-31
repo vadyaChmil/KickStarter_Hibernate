@@ -8,8 +8,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 @Entity
@@ -39,8 +39,8 @@ public class Category {
 		this.name = name;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_category")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
+	@OrderBy("id")
 	public Set<Project> getProjects() {
 		return projects;
 	}

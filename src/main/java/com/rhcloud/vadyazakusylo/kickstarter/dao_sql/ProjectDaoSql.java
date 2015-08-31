@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
@@ -50,8 +49,7 @@ public class ProjectDaoSql extends AbstractDao implements ProjectDao {
 	public List<Project> getProjects(int categoryId) {
 		Session session = sessionFactory.getCurrentSession();
 		Criteria criteria = session.createCriteria(Project.class);
-		criteria.add(Restrictions.eq("category.id", categoryId));
-		return criteria.addOrder(Order.asc("id")).list();
+		return criteria.add(Restrictions.eq("category.id", categoryId)).list();
 	}
 
 }

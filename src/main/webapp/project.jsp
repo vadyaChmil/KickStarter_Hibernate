@@ -20,13 +20,17 @@
 		<p>${quote.quote}</p>
 		<p>${quote.autor.name}</p>
 	</div>
-	<h4><a href="project?id=${project.id}">${project.name}</a></h4>
-	<p>Project needs <span class="element">${project.needMoney/100}</span> dollars</p>
-	<p>Project has <span class="element">${project.currentMoney/100}</span> dollars</p>
-	<p>Days to go - <span class="element">${project.daysLeft}</span></p>
-	<p>Description: <span class="description">${project.description}</span></p>
-	<p>History of project: <span class="description">${project.history}</span></p>
-	<p class="element"><a href="${project.urlVideo}" target="youtube">Video</a></p>
+	<ul>
+		<li>
+			<h4><a href="project?id=${project.id}">${project.name}</a></h4>
+		</li>
+		<p>Project needs <span class="element">${project.needMoney/100}</span> dollars</p>
+		<p>Project has <span class="element">${project.currentMoney/100}</span> dollars</p>
+		<p>Days to go - <span class="element">${project.daysLeft}</span></p>
+		<p>Description: <span class="description">${project.description}</span></p>
+		<p>History of project: <span class="description">${project.history}</span></p>
+		<p class="element"><a href="${project.urlVideo}" target="youtube">Video</a></p>
+	</ul>
 	<table>
 		<c:if test='${not empty project.questions}'>
 			<tr>
