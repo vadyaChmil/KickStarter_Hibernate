@@ -46,11 +46,11 @@
 		</c:if>
 	</table>
 	<div id="question">
-	<form method="get" action="question">
-		<textarea cols="50" rows="6" placeholder="Input question..."></textarea>
+	<form method="post" action="question">
+		<textarea name="text" cols="50" rows="6" placeholder="Input question..."></textarea>
 		<p>
-			<input type="reset" value="Reset">
-			<input type="submit" value="Send">
+			<input type="reset" name="reset" value="Reset">
+			<input type="submit" name="submit" value="Send">
 		</p>
 	</form>
 	</div>

@@ -103,7 +103,7 @@ public class Project {
 	public void setUrlVideo(String urlVideo) {
 		this.urlVideo = urlVideo;
 	}
-
+	
 	@OneToMany(mappedBy = "project")
 	@OrderBy("id")
 	public Set<Question> getQuestions() {

@@ -1,69 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="http://java.sun.com/xml/ns/javaee" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>KickStarter</display-name>
-  <context-param>
-    <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:application-context.xml</param-value>
-  </context-param>
-  <listener>
-    <listener-class>
-			org.springframework.web.context.ContextLoaderListener
-		</listener-class>
-  </listener>
-  <servlet>
-    <servlet-name>Categories</servlet-name>
-    <servlet-class>com.rhcloud.vadyazakusylo.kickstarter.servlets.CategoriesServlet
-		</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>Category</servlet-name>
-    <servlet-class>com.rhcloud.vadyazakusylo.kickstarter.servlets.CategoryServlet
-		</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>Project</servlet-name>
-    <servlet-class>com.rhcloud.vadyazakusylo.kickstarter.servlets.ProjectServlet
-		</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>Donation</servlet-name>
-    <servlet-class>com.rhcloud.vadyazakusylo.kickstarter.servlets.DonationServlet
-		</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>Donate</servlet-name>
-    <servlet-class>com.rhcloud.vadyazakusylo.kickstarter.servlets.DonateServlet
-		</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Categories</servlet-name>
-    <url-pattern>/categories</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>Category</servlet-name>
-    <url-pattern>/category</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>Project</servlet-name>
-    <url-pattern>/project</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>Project</servlet-name>
-    <url-pattern>/question</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>Donation</servlet-name>
-    <url-pattern>/donation</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>Donate</servlet-name>
-    <url-pattern>/donate</url-pattern>
-  </servlet-mapping>
-  <session-config>
-    <session-timeout>20</session-timeout>
-  </session-config>
-  <error-page>
-    <error-code>404</error-code>
-    <location>/error404.jsp</location>
-  </error-page>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>KickStarter</display-name>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:application-context.xml</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<!-- servlets -->
+	<servlet>
+		<servlet-name>Categories</servlet-name>
+		<servlet-class>com.rhcloud.vadyazakusylo.kickstarter.servlets.CategoriesServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Category</servlet-name>
+		<servlet-class>com.rhcloud.vadyazakusylo.kickstarter.servlets.CategoryServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Project</servlet-name>
+		<servlet-class>com.rhcloud.vadyazakusylo.kickstarter.servlets.ProjectServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Donation</servlet-name>
+		<servlet-class>com.rhcloud.vadyazakusylo.kickstarter.servlets.DonationServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Donate</servlet-name>
+		<servlet-class>com.rhcloud.vadyazakusylo.kickstarter.servlets.DonateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Categories</servlet-name>
+		<url-pattern>/categories</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Category</servlet-name>
+		<url-pattern>/category</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Project</servlet-name>
+		<url-pattern>/project</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Project</servlet-name>
+		<url-pattern>/question</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Donation</servlet-name>
+		<url-pattern>/donation</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Donate</servlet-name>
+		<url-pattern>/donate</url-pattern>
+	</servlet-mapping>
+
+	<!-- filters -->
+	<filter>
+		<filter-name>Home</filter-name>
+		<filter-class>com.rhcloud.vadyazakusylo.kickstarter.filters.HomeFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>Home</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<session-config>
+		<session-timeout>20</session-timeout>
+	</session-config>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error404.jsp</location>
+	</error-page>
 </web-app>
